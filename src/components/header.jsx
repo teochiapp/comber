@@ -55,7 +55,9 @@ const HeaderContainer = styled.div`
 
   @media (max-width: 600px) {
     padding: 0 20px; /* evita que el burger se corte en 320px */
-  }
+    justify-content: space-around;
+    }
+
 `;
 
 const Logo = styled.img`

@@ -52,6 +52,7 @@ const HeroContent = styled.div`
   @media (max-width: 768px) {
     margin-top: 120px;
     margin-left: 0;
+    padding: 0 20px;
   }
 `;
 
@@ -72,6 +73,10 @@ const HeroSubtitle = styled.p`
   max-width: 600px;
   font-weight: 400;
   line-height: 1.6;
+
+  @media (min-width: 850px) {
+   
+  }
 `;
 
 const ContentsButtons = styled.div`
