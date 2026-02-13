@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { Calendar } from 'lucide-react';
 
 const BookingButton = ({ className, href = "#contacto" }) => {
-    return (
-        <StyledButton href={href} className={className}>
-            <Calendar size={20} />
-            Reservar Turno
-        </StyledButton>
-    );
+  return (
+    <StyledButton href={href} className={className}>
+      <Calendar size={20} />
+      Reservar Turno
+    </StyledButton>
+  );
 };
 
 export default BookingButton;
@@ -25,7 +25,7 @@ const StyledButton = styled.a`
   font-weight: 700;
   text-decoration: none;
   font-family: var(--font-text);
-  font-size: 1rem;
+  font-size: 20px;
   transition: all var(--duration-normal) var(--ease-out);
   border: none;
   cursor: pointer;

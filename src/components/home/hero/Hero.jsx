@@ -1,20 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ArrowRight } from 'lucide-react';
-
+import TechVisitButton from '../../common/TechVisitButton';
+import BookingButton from '../../common/BookingButton';
 const Hero = () => {
   return (
     <HeroSection id="inicio">
       <div className="container">
         <HeroContent>
-          <HeroTitle>Construcciones que <br /><span>Perduran en el Tiempo</span></HeroTitle>
+          <HeroTitle>Soluciones profesionales <br /><span>para tu obra.</span></HeroTitle>
           <HeroSubtitle>
-            Especialistas en soluciones de hormigón y desarrollo de infraestructura.
-            Calidad suprema y compromiso con cada proyecto.
+            Bombeo de hormigón y servicios de reparación coordinados de forma simple y eficiente.
           </HeroSubtitle>
-          <CTAButton href="#servicios">
-            Nuestros Servicios <ArrowRight size={20} />
-          </CTAButton>
+          <ContentsButtons>
+            <BookingButton />
+            <TechVisitButton onClick={() => { }} />
+          </ContentsButtons>
         </HeroContent>
       </div>
     </HeroSection>
@@ -26,7 +26,7 @@ export default Hero;
 const HeroSection = styled.section`
   height: calc(80vh - 90px);
   min-height: 500px;
-  background: linear-gradient(rgba(12, 39, 60, 0.8), rgba(12, 39, 60, 0.6)), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background: linear-gradient(rgba(12, 39, 60, 0.8), rgba(12, 39, 60, 0.6)), url('/content/hero.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -35,17 +35,25 @@ const HeroSection = styled.section`
 `;
 
 const HeroContent = styled.div`
-  max-width: 800px;
+  max-width: 1200px;
   animation: fadeIn 0.8s var(--ease-out);
+
+  @media (min-width: 1500px) {
+    margin-left: -100px;
+  }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
+  @media (max-width: 768px) {
+   margin-top: 120px;
+  }
 `;
 
 const HeroTitle = styled.h1`
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(40px, 5vw, 94px);
   margin-bottom: var(--spacing-md);
   
   span {
@@ -61,22 +69,12 @@ const HeroSubtitle = styled.p`
   line-height: 1.6;
 `;
 
-const CTAButton = styled.a`
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  background-color: var(--secondary-color);
-  color: var(--text-light);
-  padding: 1rem 2rem;
-  border-radius: var(--radius-sm);
-  font-weight: 700;
-  text-decoration: none;
-  font-family: var(--font-headings);
-  transition: all var(--duration-normal) var(--ease-out);
+const ContentsButtons = styled.div`
+  display: flex;
+  gap: var(--spacing-md);
 
-  &:hover {
-    background-color: #e54d15;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255, 92, 25, 0.3);
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 `;
