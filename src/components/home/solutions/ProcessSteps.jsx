@@ -143,6 +143,10 @@ const Container = styled.div`
     gap: 60px;
     padding: 0 20px;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 const ImageWrapper = styled.div`

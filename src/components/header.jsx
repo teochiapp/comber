@@ -3,22 +3,74 @@ import styled from "styled-components";
 import BurgerMenu from "./common/burger";
 
 const Header = () => {
+  const [activeSection, setActiveSection] = React.useState('inicio');
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['inicio', 'soluciones-hormigon', 'servicios', 'contacto'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const height = element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
+            setActiveSection(section);
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const offsetTop = element.offsetTop - 90; // Adjust for header height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <HeaderWrapper>
       <HeaderContainer>
-        <Logo src="/logo.png" alt="Comber Logo" />
+        <Logo src="/logo.png" alt="Comber Logo" onClick={(e) => handleNavClick(e, 'inicio')} style={{ cursor: 'pointer' }} />
 
         <HeaderNav>
-          <HeaderNavLink href="#" className="active">
+          <HeaderNavLink
+            href="#inicio"
+            className={activeSection === 'inicio' ? 'active' : ''}
+            onClick={(e) => handleNavClick(e, 'inicio')}
+          >
             Inicio
           </HeaderNavLink>
-          <HeaderNavLink href="#">
+          <HeaderNavLink
+            href="#soluciones-hormigon"
+            className={activeSection === 'soluciones-hormigon' ? 'active' : ''}
+            onClick={(e) => handleNavClick(e, 'soluciones-hormigon')}
+          >
             Soluciones en Hormigón
           </HeaderNavLink>
-          <HeaderNavLink href="#">
+          <HeaderNavLink
+            href="#servicios"
+            className={activeSection === 'servicios' ? 'active' : ''}
+            onClick={(e) => handleNavClick(e, 'servicios')}
+          >
             Servicios de construcción
           </HeaderNavLink>
-          <HeaderNavLink href="#">
+          <HeaderNavLink
+            href="#contacto"
+            className={activeSection === 'contacto' ? 'active' : ''}
+            onClick={(e) => handleNavClick(e, 'contacto')}
+          >
             Contacto
           </HeaderNavLink>
         </HeaderNav>

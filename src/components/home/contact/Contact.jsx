@@ -1,162 +1,227 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 const Contact = () => {
-    return (
-        <ContactSection id="contacto">
-            <div className="container">
-                <Grid>
-                    <ContactInfo>
-                        <Title>¿Listo para <span>Empezar?</span></Title>
-                        <Subtitle>Póngase en contacto con nosotros para una cotización personalizada.</Subtitle>
+  return (
+    <ContactSection id="contacto">
+      <div className="container">
+        <Grid>
+          <ContactHeader>
+            <Title>¿Qué necesitas?</Title>
+            <Subtitle>Completá el siguiente formulario y nos pondremos en contacto a la brevedad.</Subtitle>
+          </ContactHeader>
 
-                        <InfoList>
-                            <InfoItem>
-                                <IconContainer><Phone size={20} /></IconContainer>
-                                <div>
-                                    <h4>Teléfono</h4>
-                                    <p>+54 9 11 1234 5678</p>
-                                </div>
-                            </InfoItem>
-                            <InfoItem>
-                                <IconContainer><Mail size={20} /></IconContainer>
-                                <div>
-                                    <h4>Email</h4>
-                                    <p>proyectos@comber.com.ar</p>
-                                </div>
-                            </InfoItem>
-                            <InfoItem>
-                                <IconContainer><MapPin size={20} /></IconContainer>
-                                <div>
-                                    <h4>Ubicación</h4>
-                                    <p>Parque Industrial, Ciudad, Argentina</p>
-                                </div>
-                            </InfoItem>
-                        </InfoList>
-                    </ContactInfo>
+          <FormContainer>
+            <ContactForm>
+              <FormGroupFull>
+                <label>Motivo de consulta <span>*</span></label>
+                <select defaultValue="">
+                  <option value="" disabled>Seleccionar opción</option>
+                  <option value="presupuesto">Presupuesto para obra</option>
+                  <option value="bombeo">Servicio de bombeo</option>
+                  <option value="hormigon">Compra de hormigón</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </FormGroupFull>
 
-                    <ContactForm>
-                        <FormGroup>
-                            <label>Nombre Completo</label>
-                            <input type="text" placeholder="Ej: Juan Pérez" />
-                        </FormGroup>
-                        <FormGroup>
-                            <label>Correo Electrónico</label>
-                            <input type="email" placeholder="email@ejemplo.com" />
-                        </FormGroup>
-                        <FormGroup>
-                            <label>Mensaje</label>
-                            <textarea rows="4" placeholder="Cuéntenos sobre su proyecto..."></textarea>
-                        </FormGroup>
-                        <SubmitButton type="submit">
-                            Enviar Consulta <Send size={18} />
-                        </SubmitButton>
-                    </ContactForm>
-                </Grid>
-            </div>
-        </ContactSection>
-    );
+              <FormRow>
+                <FormGroup>
+                  <label>Nombre y Apellido <span>*</span></label>
+                  <input type="text" placeholder="John" />
+                </FormGroup>
+                <FormGroup>
+                  <label>Empresa (opcional)</label>
+                  <input type="text" placeholder="Doe" />
+                </FormGroup>
+              </FormRow>
+
+              <FormRow>
+                <FormGroup>
+                  <label>Email <span>*</span></label>
+                  <input type="email" placeholder="example@email.com" />
+                </FormGroup>
+                <FormGroup>
+                  <label>Teléfono <span>*</span></label>
+                  <input type="tel" placeholder="+54 _ _ _ - _ _ _ - _ _ _ _" />
+                </FormGroup>
+              </FormRow>
+
+              <FormGroupFull>
+                <label>Mensaje <span>*</span></label>
+                <textarea rows="4" placeholder="Hola, me gustaría solicitar una visita técnica para pintar mi casa. Tiene tres dormitorios y una superficie aproximada de 120 metros cuadrados. Agradecería que me contactaran para coordinar una fecha. ¡Gracias!"></textarea>
+              </FormGroupFull>
+
+              <SubmitWrapper>
+                <SubmitButton type="submit">
+                  ENVIAR
+                </SubmitButton>
+              </SubmitWrapper>
+            </ContactForm>
+          </FormContainer>
+        </Grid>
+      </div>
+    </ContactSection>
+  );
 };
 
 export default Contact;
 
 const ContactSection = styled.section`
-  padding: var(--spacing-xl) 0;
-  background-color: var(--overlay);
+  padding: 100px 0;
+  background-color: var(--background);
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-xl);
-  align-items: center;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 60px;
+  align-items: start;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     grid-template-columns: 1fr;
+    gap: 60px;
   }
 `;
 
-const ContactInfo = styled.div``;
+const ContactHeader = styled.div`
+  max-width: 450px;
+`;
 
-const Title = styled.h2`
-  font-size: 2.5rem;
+const Title = styled.h3`
+  font-size: clamp(2.5rem, 5vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.1;
   color: var(--primary-color);
-  margin-bottom: var(--spacing-sm);
-  span { color: var(--secondary-color); }
+  margin-bottom: 24px;
+  font-family: var(--font-text);
 `;
 
 const Subtitle = styled.p`
-  margin-bottom: var(--spacing-lg);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--primary-color);
   opacity: 0.8;
+  font-family: var(--font-text);
 `;
 
-const InfoList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-`;
+const FormContainer = styled.div`
+  background: #FAFAFA;
+  padding: 30px 30px;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.08);
+  position: relative;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: -4vh;
+    left: 0;
+    width: 340px;
+    height: 4vh;
+    background: #FAFAFA;
+    border-radius: 8px 22px 0 0;
+    z-index: 1;
+  }
 
-const InfoItem = styled.div`
-  display: flex;
-  gap: var(--spacing-md);
-  align-items: center;
-
-  h4 { color: var(--primary-color); font-size: 1rem; }
-  p { font-size: 0.95rem; opacity: 0.7; }
-`;
-
-const IconContainer = styled.div`
-  color: var(--secondary-color);
-  background: white;
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-sm);
+  @media (max-width: 600px) {
+    padding: 40px 20px;
+  }
 `;
 
 const ContactForm = styled.form`
-  background: white;
-  padding: var(--spacing-lg);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: 25px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+`;
+
+const FormRow = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
 `;
 
 const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 12px;
 
-  label { font-size: 0.85rem; font-weight: 600; color: var(--primary-color); }
-  input, textarea {
-    padding: var(--spacing-sm) var(--spacing-md);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+  label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
     font-family: var(--font-text);
-    &:focus { outline: 1px solid var(--secondary-color); border-color: var(--secondary-color); }
+
+    span {
+      color: var(--secondary-color);
+    }
+  }
+
+  input, select, textarea {
+    background-color: #F1F1F1;
+    border: 1px solid #E2E2E2;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-family: var(--font-text);
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: #ADB5BD;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      background-color: white;
+      box-shadow: 0 0 0 4px rgba(255, 92, 25, 0.05);
+    }
+  }
+
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%230C273C' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    padding-right: 45px;
   }
 `;
 
-const SubmitButton = styled.button`
-  background: var(--primary-color);
-  color: white;
-  padding: 0.8rem;
-  border-radius: var(--radius-sm);
-  font-weight: 700;
+const FormGroupFull = styled(FormGroup)`
+  width: 100%;
+`;
+
+const SubmitWrapper = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-sm);
-  transition: all var(--duration-fast);
+  justify-content: flex-end;
+  margin-top: 10px;
+`;
+
+const SubmitButton = styled.button`
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 18px 50px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
 
   &:hover {
-    background: var(--secondary-color);
+    background-color: #E54D15;
     transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 92, 25, 0.2);
   }
 `;

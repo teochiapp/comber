@@ -2,9 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import { Calendar } from 'lucide-react';
 
-const BookingButton = ({ className, href = "#contacto" }) => {
+const BookingButton = ({ className, url = "https://calendly.com/teochiapps" }) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url });
+    } else {
+      // Fallback en caso de que el script falle
+      window.open(url, '_blank');
+    }
+  };
+
   return (
-    <StyledButton href={href} className={className}>
+    <StyledButton onClick={handleClick} className={className}>
       <Calendar size={20} />
       Reservar Turno
     </StyledButton>
