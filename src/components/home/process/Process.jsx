@@ -6,7 +6,7 @@ const Process = () => {
     <ProcessSection id="proceso-servicio">
       <div className="container">
         <Header>
-          <Title>Nuestras Soluciones</Title>
+          <Title>Servicios de construcción</Title>
         </Header>
 
         <Grid>
