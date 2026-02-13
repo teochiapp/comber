@@ -43,6 +43,11 @@ const StyledButton = styled.button`
   span {
     letter-spacing: 0.5px;
   }
+
+  @media (max-width: 350px) {
+    padding: 20px 14px;
+    font-size: 18px;
+  }
 `;
 
 const IconWrapper = styled.div`
