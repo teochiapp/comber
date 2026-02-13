@@ -7,7 +7,7 @@ const Hero = () => {
     <HeroSection id="inicio">
       <div className="container">
         <HeroContent>
-          <HeroTitle>Soluciones profesionales <br /><span>para tu obra.</span></HeroTitle>
+          <HeroTitle>Soluciones profesionales <br />para tu obra.</HeroTitle>
           <HeroSubtitle>
             Bombeo de hormigón y servicios de reparación coordinados de forma simple y eficiente.
           </HeroSubtitle>
@@ -38,8 +38,10 @@ const HeroContent = styled.div`
   max-width: 1200px;
   animation: fadeIn 0.8s var(--ease-out);
 
-  @media (min-width: 1500px) {
-    margin-left: -100px;
+
+  @media (min-width: 850px) {
+   margin-left: -150px;
+    margin-top: 150px;
   }
 
   @keyframes fadeIn {
@@ -48,13 +50,15 @@ const HeroContent = styled.div`
   }
 
   @media (max-width: 768px) {
-   margin-top: 120px;
+    margin-top: 120px;
+    margin-left: 0;
   }
 `;
 
-const HeroTitle = styled.h1`
+const HeroTitle = styled.h2`
   font-size: clamp(40px, 5vw, 94px);
   margin-bottom: var(--spacing-md);
+  font-weight: 400;
   
   span {
     color: var(--secondary-color);
@@ -66,6 +70,7 @@ const HeroSubtitle = styled.p`
   margin-bottom: var(--spacing-xl);
   color: rgba(255, 255, 255, 0.9);
   max-width: 600px;
+  font-weight: 400;
   line-height: 1.6;
 `;
 

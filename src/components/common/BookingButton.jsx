@@ -22,7 +22,7 @@ const StyledButton = styled.a`
   color: var(--text-light);
   padding: 16px 24px;
   border-radius: 8px;
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
   font-family: var(--font-text);
   font-size: 20px;
