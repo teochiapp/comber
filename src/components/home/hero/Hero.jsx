@@ -42,6 +42,7 @@ const HeroContent = styled.div`
   @media (min-width: 850px) {
    margin-left: -150px;
     margin-top: 150px;
+    margin-bottom: 30px;
   }
 
   @keyframes fadeIn {

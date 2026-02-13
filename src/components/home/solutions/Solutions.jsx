@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import BookingButton from '../../common/BookingButton';
+import ProcessSteps from './ProcessSteps';
 
 const Solutions = () => {
   return (
@@ -57,6 +58,8 @@ const Solutions = () => {
           </BannerInfo>
           <BookingButton />
         </CTABanner>
+
+        <ProcessSteps />
       </div>
     </SolutionsSection >
   );
