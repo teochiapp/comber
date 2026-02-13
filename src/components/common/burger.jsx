@@ -142,10 +142,14 @@ const Overlay = styled.div`
 
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   transform: ${({ $open }) =>
     $open ? "translateX(0)" : "translateX(100%)"};
-  transition: transform 0.4s ease;
+  visibility: ${({ $open }) => ($open ? "visible" : "hidden")};
+  pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
+  transition: transform 0.4s ease, visibility 0.4s ease;
 `;
 
 const CloseButton = styled.button`
@@ -232,7 +236,8 @@ const CTAButton = styled.button`
   cursor: pointer;
   display: flex;
   gap: 20px;
-  width: 265px;
+  max-width: 265px;
+  width: 100%;
   height: 55px;
   align-items: center;
 `;

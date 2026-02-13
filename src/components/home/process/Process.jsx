@@ -111,8 +111,12 @@ const SolutionCard = styled.div`
   justify-content: flex-start;
 
   @media (max-width: 768px) {
-    padding: 0 0 0 24px;
+    padding: 0 0 0 40px;
   }
+  @media (max-width: 362px) {
+    padding: 0 0 0 20px;
+  }
+
 `;
 
 const IconContainer = styled.div`
@@ -133,6 +137,10 @@ const CardTitle = styled.h3`
   font-weight: 500;
   margin-bottom: 20px;
   font-family: var(--font-headings);
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const CardDescription = styled.p`
@@ -144,7 +152,7 @@ const CardDescription = styled.p`
   max-width: 320px; // Adjusted for 3 columns
 
   @media (max-width: 768px) {
-    max-width: none;
+    max-width:260px
   }
 
 `;

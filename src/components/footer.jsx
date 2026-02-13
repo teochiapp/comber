@@ -26,6 +26,16 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <div className="container" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        <Watermark>
+          <svg width="100%" height="100%" viewBox="0 0 335 231" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <path d="M167.892 86.865V226.697C167.67 226.697 167.447 226.702 167.225 226.702C137.352 226.702 111.969 225.154 91.0739 222.059C70.1788 219.118 53.308 213.004 40.4615 203.717C27.6149 194.276 18.2508 180.191 12.3692 161.463C6.51227 142.813 3.57139 117.947 3.5469 86.865H167.892Z" stroke="currentColor" stroke-width="8" />
+              <path d="M330.898 87.0584C330.861 118.05 327.925 142.852 322.08 161.463C316.198 180.191 306.834 194.276 293.988 203.717C281.141 213.004 264.27 219.118 243.375 222.059C222.806 225.129 197.669 226.667 167.965 226.692C171.233 124.648 281.834 90.0873 330.898 87.0584Z" stroke="currentColor" stroke-width="8" />
+              <path d="M168.226 -50.9648C197.816 -50.9308 222.866 -49.3874 243.375 -46.3263C264.27 -43.2308 281.141 -37.0397 293.988 -27.753C306.834 -18.4663 316.198 -4.69106 322.08 13.5727C327.962 31.8365 330.902 56.1367 330.902 86.4732C330.902 86.5813 330.898 86.6893 330.898 86.7972C227.398 84.2659 173.005 -5.35893 168.226 -50.9648Z" stroke="currentColor" stroke-width="8" />
+              <path d="M167.742 -50.9697C164.012 18.8157 82.3193 84.1135 3.5469 86.7682C3.54684 86.6699 3.5469 86.5716 3.5469 86.4732C3.5469 56.1367 6.48768 31.8365 12.3692 13.5727C18.2508 -4.69105 27.6149 -18.4663 40.4615 -27.753C53.308 -37.0397 70.1788 -43.2308 91.0739 -46.3263C111.969 -49.4219 137.352 -50.9697 167.225 -50.9697C167.397 -50.9697 167.57 -50.9698 167.742 -50.9697Z" stroke="currentColor" stroke-width="8" />
+            </g>
+          </svg>
+        </Watermark>
         <TopSection>
           <BigTitle>Servicios claros, trabajos bien hechos.</BigTitle>
         </TopSection>
@@ -72,23 +82,12 @@ const Footer = () => {
               </SocialGrid>
 
               <CopyText>
-                © 2026 — Copyright<br />
-                All Rights reserved
+                © 2026 — Copyright <span className="mobile-sep">| </span><br className="desktop-br" /> All Rights reserved
               </CopyText>
             </SocialCol>
           </RightWrapper>
         </MainGrid>
       </div>
-      <Watermark>
-        <svg width="100%" height="100%" viewBox="0 0 335 231" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g>
-            <path d="M167.892 86.865V226.697C167.67 226.697 167.447 226.702 167.225 226.702C137.352 226.702 111.969 225.154 91.0739 222.059C70.1788 219.118 53.308 213.004 40.4615 203.717C27.6149 194.276 18.2508 180.191 12.3692 161.463C6.51227 142.813 3.57139 117.947 3.5469 86.865H167.892Z" stroke="currentColor" stroke-width="8" />
-            <path d="M330.898 87.0584C330.861 118.05 327.925 142.852 322.08 161.463C316.198 180.191 306.834 194.276 293.988 203.717C281.141 213.004 264.27 219.118 243.375 222.059C222.806 225.129 197.669 226.667 167.965 226.692C171.233 124.648 281.834 90.0873 330.898 87.0584Z" stroke="currentColor" stroke-width="8" />
-            <path d="M168.226 -50.9648C197.816 -50.9308 222.866 -49.3874 243.375 -46.3263C264.27 -43.2308 281.141 -37.0397 293.988 -27.753C306.834 -18.4663 316.198 -4.69106 322.08 13.5727C327.962 31.8365 330.902 56.1367 330.902 86.4732C330.902 86.5813 330.898 86.6893 330.898 86.7972C227.398 84.2659 173.005 -5.35893 168.226 -50.9648Z" stroke="currentColor" stroke-width="8" />
-            <path d="M167.742 -50.9697C164.012 18.8157 82.3193 84.1135 3.5469 86.7682C3.54684 86.6699 3.5469 86.5716 3.5469 86.4732C3.5469 56.1367 6.48768 31.8365 12.3692 13.5727C18.2508 -4.69105 27.6149 -18.4663 40.4615 -27.753C53.308 -37.0397 70.1788 -43.2308 91.0739 -46.3263C111.969 -49.4219 137.352 -50.9697 167.225 -50.9697C167.397 -50.9697 167.57 -50.9698 167.742 -50.9697Z" stroke="currentColor" stroke-width="8" />
-          </g>
-        </svg>
-      </Watermark>
     </FooterWrapper>
   );
 };
@@ -97,7 +96,7 @@ export default Footer;
 
 const FooterWrapper = styled.footer`
   background-color: var(--primary-color);
-  padding: 80px 0 60px 0;
+  padding: 80px 10px 60px 10px;
   position: relative;
   overflow: hidden;
   color: #ffffff;
@@ -124,6 +123,7 @@ const BigTitle = styled.h2`
 
   @media (max-width: 768px) {
     font-size: 32px;
+    max-width: 313px;
     margin: 0 auto;
   }
 `;
@@ -145,7 +145,7 @@ const MainGrid = styled.div`
   align-items: flex-start;
   gap: 60px;
 
-  @media (max-width: 991px) {
+  @media (max-width: 1000px) {
     flex-direction: column;
     gap: 60px;
   }
@@ -153,7 +153,7 @@ const MainGrid = styled.div`
   @media (max-width: 768px) {
     align-items: center;
     text-align: center;
-    gap: 40px;
+    gap: 80px;
   }
 `;
 
@@ -165,7 +165,7 @@ const RightWrapper = styled.div`
     gap: 60px;
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: 1000px) {
     width: 100%;
     justify-content: space-between;
     gap: 20px;
@@ -202,6 +202,7 @@ const LogoImg = styled.img`
 
   @media (max-width: 768px) {
     align-self: center;
+    height: 34.19px;
   }
 `;
 
@@ -361,29 +362,47 @@ const CopyText = styled.p`
   text-align: right;
   line-height: 1.4;
 
+  .mobile-sep {
+    display: none;
+  }
+
   @media (max-width: 991px) {
     text-align: left;
   }
 
   @media (max-width: 768px) {
     text-align: center;
+    font-size: 12px;
+    
+    .mobile-sep {
+      display: inline;
+    }
+    .desktop-br {
+      display: none;
+    }
   }
 `;
 
 const Watermark = styled.div`
   position: absolute;
-  top: -31px;
-  right: 94px;
+  top: -77px;
+  right: 17px;
   width: 327.36px;
   height: 277.67px;
   opacity: 0.3;
   color: #040d14ff;
   pointer-events: none;
+  z-index: -1; /* Place behind text but inside container's zIndex: 1 */
+
+  @media (max-width: 1000px) {
+    right: 0px;
+  }
 
   @media (max-width: 768px) {
-    top: -20px;
-    right: 50%;
+    top: -50px;
+    right: 25%;
     transform: translateX(50%);
     opacity: 0.2;
+    z-index: 0;
   }
 `;
