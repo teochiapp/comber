@@ -67,6 +67,12 @@ const Solutions = () => {
 
 export default Solutions;
 
+const Container = styled.div`
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+`;
+
 const DesktopBreak = styled.br`
   display: none;
   @media (min-width: 992px) {
