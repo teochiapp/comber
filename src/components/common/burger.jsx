@@ -7,13 +7,19 @@ const BurgerMenu = () => {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const sections = ['inicio', 'soluciones-hormigon', 'servicios', 'contacto'];
-      const scrollPosition = window.scrollY + 100;
+      const sections = ['inicio', 'soluciones-hormigon', 'servicios', 'process', 'contacto'];
+      const scrollPosition = window.scrollY + 120;
+
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+        setActiveSection('contacto');
+        return;
+      }
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
-          const offsetTop = element.offsetTop;
+          const rect = element.getBoundingClientRect();
+          const offsetTop = rect.top + window.scrollY;
           const height = element.offsetHeight;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
             setActiveSection(section);
@@ -30,7 +36,8 @@ const BurgerMenu = () => {
     setOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      const offsetTop = element.offsetTop - 90;
+      const rect = element.getBoundingClientRect();
+      const offsetTop = rect.top + window.scrollY - 90;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'

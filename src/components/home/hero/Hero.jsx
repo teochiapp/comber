@@ -40,7 +40,7 @@ const Hero = () => {
 export default Hero;
 
 const HeroSection = styled.section`
-  height: calc(85vh - 90px);
+  height: calc(90vh - 90px);
   min-height: 500px;
   background: linear-gradient(rgba(12, 39, 60, 0.75), rgba(12, 39, 60, 0.85)), url('/content/hero.jpg');
   background-size: cover;
@@ -56,7 +56,6 @@ const HeroContent = styled.div`
   @media (min-width: 850px) {
     margin-left: -150px;
     margin-top: 150px;
-    margin-bottom: 30px;
   }
 
   @media (max-width: 768px) {

@@ -7,13 +7,20 @@ const Header = () => {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const sections = ['inicio', 'soluciones-hormigon', 'servicios', 'contacto'];
-      const scrollPosition = window.scrollY + 100;
+      const sections = ['inicio', 'soluciones-hormigon', 'servicios', 'process', 'contacto'];
+      const scrollPosition = window.scrollY + 120; // Increased threshold slightly
+
+      // Detection for bottom of page to ensure 'contacto' becomes active
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+        setActiveSection('contacto');
+        return;
+      }
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
-          const offsetTop = element.offsetTop;
+          const rect = element.getBoundingClientRect();
+          const offsetTop = rect.top + window.scrollY;
           const height = element.offsetHeight;
 
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
@@ -31,7 +38,8 @@ const Header = () => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      const offsetTop = element.offsetTop - 90; // Adjust for header height
+      const rect = element.getBoundingClientRect();
+      const offsetTop = rect.top + window.scrollY - 90; // Adjust for header height
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'

@@ -6,11 +6,7 @@ const Process = () => {
     <ProcessSection id="process">
       <div className="container">
         <Header>
-<<<<<<< HEAD
           <Title>Nuestro Proceso</Title>
-=======
-          <Title>Servicios de construcción</Title>
->>>>>>> 7a836c937f123e0108553932c4c24a875883b2be
         </Header>
       </div>
     </ProcessSection>
@@ -44,8 +40,6 @@ const Title = styled.h2`
     font-size: 2.8rem;
   }
 `;
-<<<<<<< HEAD
-=======
 
 const Grid = styled.div`
   display: grid;
@@ -116,4 +110,3 @@ const CardDescription = styled.p`
 
 `;
 
->>>>>>> 7a836c937f123e0108553932c4c24a875883b2be

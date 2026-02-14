@@ -312,7 +312,7 @@ const SocialGrid = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  align-items: flex-end;
+  align-items: flex-start;
 
   @media (max-width: 991px) {
     align-items: flex-start;
@@ -385,7 +385,7 @@ const CopyText = styled.p`
 
 const Watermark = styled.div`
   position: absolute;
-  top: -77px;
+  top: -117px;
   right: 17px;
   width: 327.36px;
   height: 277.67px;
