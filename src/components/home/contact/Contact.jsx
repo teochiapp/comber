@@ -1,8 +1,64 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Send } from 'lucide-react';
+import { Smartphone } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
+  const [formData, setFormData] = React.useState({
+    reason: '',
+    user_name: '',
+    user_company: '',
+    user_email: '',
+    user_phone: '',
+    message: ''
+  });
+
+  const [status, setStatus] = React.useState({
+    submitting: false,
+    info: { error: false, msg: null }
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ submitting: true, info: { error: false, msg: null } });
+
+    try {
+      await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        formData,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      );
+
+      setStatus({
+        submitting: false,
+        info: { error: false, msg: "Mensaje enviado con éxito. Nos contactaremos pronto." }
+      });
+      setFormData({
+        reason: '',
+        user_name: '',
+        user_company: '',
+        user_email: '',
+        user_phone: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setStatus({
+        submitting: false,
+        info: { error: true, msg: "Error al enviar el mensaje. Por favor, intente nuevamente." }
+      });
+    }
+  };
+
   return (
     <ContactSection id="contacto">
       <div className="container">
@@ -12,11 +68,21 @@ const Contact = () => {
             <Subtitle>Completá el siguiente formulario y nos pondremos en contacto a la brevedad.</Subtitle>
           </ContactHeader>
 
-          <FormContainer>
-            <ContactForm>
+          <FormContainer
+            initial={{ opacity: 0, x: 120 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", damping: 20, stiffness: 80, duration: 1 }}
+          >
+            <ContactForm onSubmit={handleSubmit}>
               <FormGroupFull>
                 <label>Motivo de consulta <span>*</span></label>
-                <select defaultValue="">
+                <select
+                  name="reason"
+                  value={formData.reason}
+                  onChange={handleChange}
+                  required
+                >
                   <option value="" disabled>Seleccionar opción</option>
                   <option value="presupuesto">Presupuesto para obra</option>
                   <option value="bombeo">Servicio de bombeo</option>
@@ -28,33 +94,76 @@ const Contact = () => {
               <FormRow>
                 <FormGroup>
                   <label>Nombre y Apellido <span>*</span></label>
-                  <input type="text" placeholder="John" />
+                  <input
+                    type="text"
+                    name="user_name"
+                    value={formData.user_name}
+                    onChange={handleChange}
+                    placeholder="John"
+                    required
+                  />
                 </FormGroup>
                 <FormGroup>
                   <label>Empresa (opcional)</label>
-                  <input type="text" placeholder="Doe" />
+                  <input
+                    type="text"
+                    name="user_company"
+                    value={formData.user_company}
+                    onChange={handleChange}
+                    placeholder="Doe"
+                  />
                 </FormGroup>
               </FormRow>
 
               <FormRow>
                 <FormGroup>
                   <label>Email <span>*</span></label>
-                  <input type="email" placeholder="example@email.com" />
+                  <input
+                    type="email"
+                    name="user_email"
+                    value={formData.user_email}
+                    onChange={handleChange}
+                    placeholder="example@email.com"
+                    required
+                  />
                 </FormGroup>
                 <FormGroup>
                   <label>Teléfono <span>*</span></label>
-                  <input type="tel" placeholder="+54 _ _ _ - _ _ _ - _ _ _ _" />
+                  <PhoneInputWrapper>
+                    <Smartphone size={20} />
+                    <input
+                      type="tel"
+                      name="user_phone"
+                      value={formData.user_phone}
+                      onChange={handleChange}
+                      placeholder="+54 _ _ _ - _ _ _ - _ _ _ _"
+                      required
+                    />
+                  </PhoneInputWrapper>
                 </FormGroup>
               </FormRow>
 
               <FormGroupFull>
                 <label>Mensaje <span>*</span></label>
-                <textarea rows="4" placeholder="Hola, me gustaría solicitar una visita técnica para pintar mi casa. Tiene tres dormitorios y una superficie aproximada de 120 metros cuadrados. Agradecería que me contactaran para coordinar una fecha. ¡Gracias!"></textarea>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="4"
+                  placeholder="Hola, me gustaría solicitar una visita técnica para pintar mi casa. Tiene tres dormitorios y una superficie aproximada de 120 metros cuadrados. Agradecería que me contactaran para coordinar una fecha. ¡Gracias!"
+                  required
+                ></textarea>
               </FormGroupFull>
 
+              {status.info.msg && (
+                <StatusMessage error={status.info.error}>
+                  {status.info.msg}
+                </StatusMessage>
+              )}
+
               <SubmitWrapper>
-                <SubmitButton type="submit">
-                  ENVIAR
+                <SubmitButton type="submit" disabled={status.submitting}>
+                  {status.submitting ? 'ENVIANDO...' : 'ENVIAR'}
                 </SubmitButton>
               </SubmitWrapper>
             </ContactForm>
@@ -105,7 +214,7 @@ const Subtitle = styled.p`
   font-family: var(--font-text);
 `;
 
-const FormContainer = styled.div`
+const FormContainer = styled(motion.div)`
   background: #FAFAFA;
   padding: 30px 30px;
   border-radius: 20px;
@@ -201,6 +310,36 @@ const FormGroupFull = styled(FormGroup)`
   width: 100%;
 `;
 
+const PhoneInputWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  svg {
+    position: absolute;
+    left: 20px;
+    color: var(--primary-color);
+    pointer-events: none;
+    opacity: 0.8;
+  }
+
+  input {
+    padding-left: 55px !important;
+    width: 100%;
+  }
+`;
+
+const StatusMessage = styled.div`
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  background-color: ${props => props.error ? '#FEE2E2' : '#D1FAE5'};
+  color: ${props => props.error ? '#991B1B' : '#065F46'};
+  border: 1px solid ${props => props.error ? '#FECACA' : '#A7F3D0'};
+`;
+
 const SubmitWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -210,10 +349,10 @@ const SubmitWrapper = styled.div`
 const SubmitButton = styled.button`
   background-color: var(--secondary-color);
   color: white;
-  padding: 18px 50px;
+  padding: 16px 24px;
   border-radius: 10px;
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: 800;
+  font-size: 0.9rem;
   letter-spacing: 1px;
   border: none;
   cursor: pointer;

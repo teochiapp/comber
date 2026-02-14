@@ -6,7 +6,7 @@ import ProcessSteps from './ProcessSteps';
 const Solutions = () => {
   return (
     <SolutionsSection id="soluciones-hormigon">
-      <div className="container">
+      <Container>
         <Header>
           <Title>Soluciones en Hormigón</Title>
         </Header>
@@ -60,7 +60,7 @@ const Solutions = () => {
         </CTABanner>
 
         <ProcessSteps />
-      </div>
+      </Container>
     </SolutionsSection >
   );
 };

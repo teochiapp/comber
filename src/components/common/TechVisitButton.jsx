@@ -2,20 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import { Home } from 'lucide-react';
 
-const TechVisitButton = ({ onClick }) => {
-    return (
-        <StyledButton onClick={onClick}>
-            <IconWrapper>
-                <Home size={20} />
-            </IconWrapper>
-            <span>Solicitar visita técnica</span>
-        </StyledButton>
-    );
+const TechVisitButton = () => {
+  const phoneNumber = "5491112345678"; // Reemplazar con el número real
+  const message = encodeURIComponent("¡Hola! Me gustaría solicitar una visita técnica para mi obra.");
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+
+  return (
+    <StyledButton href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+      <IconWrapper>
+        <Home size={20} />
+      </IconWrapper>
+      <span>Solicitar visita técnica</span>
+    </StyledButton>
+  );
 };
 
 export default TechVisitButton;
 
-const StyledButton = styled.button`
+const StyledButton = styled.a`
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-md);
@@ -29,6 +33,7 @@ const StyledButton = styled.button`
   font-weight: 500;
   transition: all var(--duration-normal) var(--ease-out);
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     background-color: rgba(255, 92, 25, 0.1);
