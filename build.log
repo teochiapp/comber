@@ -1,0 +1,40 @@
+﻿
+> comber@0.1.0 build
+> react-scripts build
+
+Creating an optimized production build...
+Compiled with warnings.
+
+[eslint] 
+src\components\footer.jsx
+  Line 259:7:  'BadgeBox' is assigned a value but never used  no-unused-vars
+
+src\components\home\process\Process.jsx
+  Line 44:7:  'Grid' is assigned a value but never used             no-unused-vars
+  Line 59:7:  'SolutionCard' is assigned a value but never used     no-unused-vars
+  Line 75:7:  'IconContainer' is assigned a value but never used    no-unused-vars
+  Line 87:7:  'CardTitle' is assigned a value but never used        no-unused-vars
+  Line 99:7:  'CardDescription' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+File sizes after gzip:
+
+  134.31 kB  build\static\js\main.2140e2df.js
+  1.76 kB    build\static\js\453.70f28625.chunk.js
+  988 B      build\static\css\main.994b0e9f.css
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+

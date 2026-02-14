@@ -256,11 +256,7 @@ const ThumbButton = styled.a`
   }
 `;
 
-const BadgeBox = styled.div`
-  position: absolute;
-  top: -12px;
-  left: 140px; // Adjusted to be on top of the icon area
-`;
+
 
 
 const LinksCol = styled.div`
