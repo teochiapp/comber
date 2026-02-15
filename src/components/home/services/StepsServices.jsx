@@ -5,44 +5,35 @@ import { motion } from 'framer-motion';
 const steps = [
   {
     number: '01',
-    title: 'Completá los datos solicitados',
-    description: 'La información necesaria para conocer tu obra.'
+    title: 'Contanos qué necesitás',
+    description: 'Describí el tipo de trabajo requerido y la ubicación de la obra.'
   },
   {
     number: '02',
-    title: 'Elegí fecha y horario disponibles',
-    description: 'Seleccioná un turno en nuestro calendario.'
+    title: 'Coordinamos la visita',
+    description: 'Definimos día y horario según la disponibilidad.'
   },
   {
     number: '03',
-    title: 'Revisión y confirmación',
-    description: 'Analizamos la información y te contactamos para confirmar disponibilidad y presupuesto.'
-  },
-  {
-    number: '04',
-    title: 'Nos presentamos en tu obra!',
-    description: 'En la fecha acordada, con el equipo y el servicio que tu proyecto necesita.'
+    title: 'Evaluación en el lugar',
+    description: 'Analizamos el trabajo y te presentamos un presupuesto acorde.'
   }
 ];
 
-const ProcessSteps = () => {
+const StepsServices = () => {
   return (
     <Section>
-      <Container>
-        {/* Left Side: Image */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          style={{ flex: 1.1, width: '100%' }}
-        >
-          <ImageWrapper>
-            <MainImage src="/content/process-cover.png" alt="Proceso de trabajo" />
-          </ImageWrapper>
-        </motion.div>
+      {/* SVG Mask for the custom image shape */}
+      <svg style={{ position: 'absolute', width: 0, height: 0 }}>
+        <defs>
+          <clipPath id="folderMask" clipPathUnits="objectBoundingBox">
+            <path d="M0,0.3 C0,0.25, 0.02,0.25, 0.08,0.25 L0.35,0.25 C0.48,0.25, 0.52,0, 0.65,0 L0.92,0 C0.98,0, 1,0.02, 1,0.08 L1,0.92 C1,0.98, 0.98,1, 0.92,1 L0.08,1 C0.02,1, 0,0.98, 0,0.92 Z" />
+          </clipPath>
+        </defs>
+      </svg>
 
-        {/* Right Side: Timeline */}
+      <Container>
+        {/* Left Side: Timeline */}
         <StepsWrapper>
           {/* Header Part */}
           <TimelineHeader>
@@ -93,7 +84,7 @@ const ProcessSteps = () => {
             {steps.map((step, index) => (
               <StepItem
                 key={index}
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 1.2 + index * 0.5 }}
@@ -118,16 +109,29 @@ const ProcessSteps = () => {
             ))}
           </StepsList>
         </StepsWrapper>
+
+        {/* Right Side: Image */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          style={{ flex: 1.1, width: '100%' }}
+        >
+          <ImageWrapper>
+            <MainImage src="/content/service.png" alt="Proceso de trabajo" />
+          </ImageWrapper>
+        </motion.div>
       </Container>
     </Section>
   );
 };
 
-export default ProcessSteps;
+export default StepsServices;
 
 const Section = styled.section`
   padding: 100px 0;
-  background-color: var(--background);
+  background-color: var(--overlay);
   overflow: hidden;
 `;
 
@@ -158,12 +162,14 @@ const MainImage = styled.img`
   height: auto;
   object-fit: cover;
   display: block;
+  clip-path: url(#folderMask);
 `;
 
 const StepsWrapper = styled.div`
   flex: 0.9;
   display: flex;
   flex-direction: column;
+  padding-bottom: 80px;
 `;
 
 
@@ -272,7 +278,7 @@ const ConnectorLine = styled(motion.div)`
   transform: translateX(-50%);
   width: 1.5px;
   background-color: var(--primary-color);
-  opacity: 0.9;
+  opacity: 1;
   transform-origin: top;
   z-index: 1;
 `;

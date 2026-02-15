@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TechVisitButton from '../../common/TechVisitButton';
 import { Home } from 'lucide-react';
-import ServicesSteps from './ServicesSteps';
+import StepsServices from './StepsServices';
 
 const Services = () => {
   const phoneNumber = "5491112345678"; // Reemplazar con el número real
@@ -91,10 +91,10 @@ const Services = () => {
           </StyledButton>
         </CTABanner>
 
-        <ServicesSteps />
+        <StepsServices />
 
-      </div>
-    </ServicesSection>
+      </div >
+    </ServicesSection >
   );
 };
 
@@ -102,12 +102,11 @@ export default Services;
 
 const ServicesSection = styled.section`
   padding: 120px 0 30px 0;
-  margin: 10px 0;
+  margin: 0;
   background-color: var(--overlay);
   border-radius: 2px;
 
   @media (min-width: 768px) {
-    margin: 10px 30px;
     margin-top: 50px;
   }
 `;
@@ -174,6 +173,10 @@ const CardTitle = styled.h3`
   font-weight: 500;
   margin-bottom: 20px;
   font-family: var(--font-headings);
+
+  @media (max-width: 425px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const CardDescription = styled.p`

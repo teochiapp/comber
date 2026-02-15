@@ -81,7 +81,7 @@ const DesktopBreak = styled.br`
 `;
 
 const SolutionsSection = styled.section`
-  padding: 100px 0;
+  padding: 80px 0 40px 0;
   margin: 10px 0;
   background-color: var(--background);
   border-radius: 2px;
