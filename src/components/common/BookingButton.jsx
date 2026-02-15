@@ -49,4 +49,14 @@ const StyledButton = styled.a`
   svg {
     flex-shrink: 0;
   }
+
+  @media (max-width: 375px) {
+    width: 228px;
+    height: 51px;
+    border-radius: 8px;
+    padding: 16px;
+    gap: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
 `;
