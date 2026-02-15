@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import TechVisitButton from '../../common/TechVisitButton';
+import ProsesStepsServices from './ProsesStepsServices';
 
 const Services = () => {
   return (
@@ -57,6 +59,26 @@ const Services = () => {
             </CardDescription>
           </SolutionCard>
         </Grid>
+        <CTABanner>
+          <BannerInfo>
+            <SvgContainer>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_840_559)">
+                  <path d="M15.286 15.286L24.714 24.7141M24.714 24.7141L24.714 16.4646M24.714 24.7141L16.4645 24.7141M8.21489 8.21497C14.7238 1.70606 25.2762 1.70606 31.7851 8.21498C38.294 14.7239 38.294 25.2763 31.7851 31.7852C25.2762 38.2941 14.7238 38.2941 8.21489 31.7852C1.70597 25.2763 1.70597 14.7239 8.21489 8.21497Z" stroke="#FF5C19" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_840_559">
+                    <rect width="40" height="40" fill="white" transform="matrix(-4.37114e-08 1 1 4.37114e-08 1.74846e-06 0)" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </SvgContainer>
+            <BannerText>Trabajos de construcción, reparación y <DesktopBreak /> mantenimiento adaptados a cada proyecto.</BannerText>
+          </BannerInfo>
+          <TechVisitButton />
+        </CTABanner>
+
+        <ProsesStepsServices />
       </div>
     </ServicesSection>
   );
@@ -69,6 +91,10 @@ const ServicesSection = styled.section`
   margin: 10px 30px;
   background-color: var(--background);
   border-radius: 2px;
+
+  @media (max-width: 425px) {
+    margin: 10px 20px;
+  }
 `;
 
 const Header = styled.div`
@@ -133,6 +159,10 @@ const CardTitle = styled.h3`
   font-weight: 500;
   margin-bottom: 20px;
   font-family: var(--font-headings);
+
+  @media (max-width: 425px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const CardDescription = styled.p`
@@ -146,6 +176,61 @@ const CardDescription = styled.p`
   @media (max-width: 768px) {
     max-width: none;
   }
+`;
 
+const CTABanner = styled.div`
+  background-color: var(--overlay);
+  padding: 24px 32px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  margin-top: 80px;
+
+  @media (max-width: 991px) {
+    flex-direction: column;
+    align-items: flex-start;
+    & > :last-child {
+      align-self: flex-end;
+    }
+  } 
+`;
+
+const SvgContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+`;
+
+const BannerInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 50vw;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+`;
+
+const BannerText = styled.p`
+  font-size: 1.15rem;
+  color: var(--primary-color);
+  font-weight: 400;
+  margin: 0;
+  font-family: var(--font-text);
+`;
+
+const DesktopBreak = styled.br`
+  display: none;
+  @media (min-width: 992px) {
+    display: inline;
+  }
 `;
 

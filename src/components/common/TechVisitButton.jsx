@@ -23,8 +23,7 @@ const StyledButton = styled.a`
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-md);
-  background-color: var(--primary-color);
-  border: 1px solid var(--secondary-color);
+  background-color: var(--secondary-color);
   color: var(--text-light);
   padding: 16px 24px;
   border-radius: var(--radius-md);
@@ -34,11 +33,12 @@ const StyledButton = styled.a`
   transition: all var(--duration-normal) var(--ease-out);
   cursor: pointer;
   text-decoration: none;
+  border: none;
 
   &:hover {
-    background-color: rgba(255, 92, 25, 0.1);
+    background-color: #e54d15;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 92, 25, 0.2);
+    box-shadow: 0 4px 12px rgba(255, 92, 25, 0.3);
   }
 
   &:active {
@@ -59,5 +59,5 @@ const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--secondary-color);
+  color: var(--text-light);
 `;
