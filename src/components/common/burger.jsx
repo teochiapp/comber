@@ -211,8 +211,8 @@ const MenuContent = styled.div`
   box-sizing: border-box;
 
 
-  @media (max-width: 350px) {
-    padding: 80px 40px 40px 40px;
+  @media (max-width: 380px) {
+    padding: 40px 40px 40px 40px;
     gap: 20px;
   }
 `;
