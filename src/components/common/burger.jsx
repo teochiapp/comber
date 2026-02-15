@@ -152,7 +152,7 @@ const Overlay = styled.div`
   top: 0;
   right: 0;
   bottom: 0;
-  width: 80vw;
+  width: 100vw;
   height: 100vh;
   background-color: var(--primary-color);
   z-index: 2000;
