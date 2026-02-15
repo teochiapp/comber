@@ -153,7 +153,8 @@ const Overlay = styled.div`
   right: 0;
   bottom: 0;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+
   background-color: var(--primary-color);
   z-index: 2000;
 
@@ -208,7 +209,7 @@ const BottomSection = styled.div`
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 150px;
+  gap: 125px;
   margin-bottom: 15px;
 `;
 
