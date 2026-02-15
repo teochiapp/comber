@@ -209,6 +209,12 @@ const MenuContent = styled.div`
   color: white;
   min-height: 100%;
   box-sizing: border-box;
+
+
+  @media (max-width: 350px) {
+    padding: 80px 40px 40px 40px;
+    gap: 20px;
+  }
 `;
 
 const MenuItem = styled.a`
@@ -232,6 +238,11 @@ const BottomSection = styled.div`
   flex-direction: column;
   gap: 40px;
   padding-bottom: 20px;
+
+  @media (max-width: 350px) {
+    margin-top: 50px;
+    gap: 30px;
+  }
 `;
 
 const Logo = styled.div`
