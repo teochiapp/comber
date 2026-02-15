@@ -182,12 +182,13 @@ const CloseButton = styled.button`
 `;
 
 const MenuContent = styled.div`
-  padding: 185px 40px 40px 40px;
+  padding: 100px 40px 40px 40px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
   color: white;
-  height: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
 `;
 
 const MenuItem = styled.a`
@@ -206,11 +207,11 @@ const MenuItem = styled.a`
 `;
 
 const BottomSection = styled.div`
-  margin-top: auto;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
-  gap: 125px;
-  margin-bottom: 15px;
+  gap: 40px;
+  padding-bottom: 20px;
 `;
 
 const Logo = styled.div`
@@ -246,17 +247,18 @@ const Circle = styled.div`
 const CTAButton = styled.a`
   background-color: var(--secondary-color);
   border: none;
-  padding: 16px;
+  padding: 14px 20px;
   border-radius: 12px;
   color: white;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  gap: 12px;
   max-width: 265px;
   width: 100%;
-  height: 55px;
+  min-height: 50px;
   align-items: center;
   text-decoration: none;
 `;

@@ -99,8 +99,10 @@ const HeaderWrapper = styled.header`
   background-color: var(--primary-color);
   box-shadow: var(--shadow-md);
   height: 90px;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
   display: flex;
   align-items: center;
