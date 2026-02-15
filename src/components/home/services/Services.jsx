@@ -1,7 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import TechVisitButton from '../../common/TechVisitButton';
+import { Home } from 'lucide-react';
+import ServicesSteps from './ServicesSteps';
 
 const Services = () => {
+  const phoneNumber = "5491112345678"; // Reemplazar con el número real
+  const message = encodeURIComponent("¡Hola! Me gustaría solicitar una visita técnica para mi obra.");
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
   return (
     <ServicesSection id="servicios">
       <div className="container">
@@ -56,7 +62,37 @@ const Services = () => {
               Pintura profesional para interiores y exteriores. Preparación de superficies, tratamiento de humedad y acabados de alta durabilidad. Trabajo prolijo con plazos establecidos.
             </CardDescription>
           </SolutionCard>
+
         </Grid>
+
+        <CTABanner>
+          <BannerInfo>
+            <SvgContainer>
+              <SvgContainer>
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_840_559)">
+                    <path d="M15.286 15.286L24.714 24.7141M24.714 24.7141L24.714 16.4646M24.714 24.7141L16.4645 24.7141M8.21489 8.21497C14.7238 1.70606 25.2762 1.70606 31.7851 8.21498C38.294 14.7239 38.294 25.2763 31.7851 31.7852C25.2762 38.2941 14.7238 38.2941 8.21489 31.7852C1.70597 25.2763 1.70597 14.7239 8.21489 8.21497Z" stroke="#FF5C19" stroke-linecap="round" stroke-linejoin="round" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_840_559">
+                      <rect width="40" height="40" fill="white" transform="matrix(-4.37114e-08 1 1 4.37114e-08 1.74846e-06 0)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </SvgContainer>
+            </SvgContainer>
+            <BannerText>Trabajos de construcción, reparación y <DesktopBreak />mantenimiento adaptados a cada proyecto.</BannerText>
+          </BannerInfo>
+          <StyledButton href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+            <IconWrapper>
+              <Home size={20} />
+            </IconWrapper>
+            <span>Solicitar visita técnica</span>
+          </StyledButton>
+        </CTABanner>
+
+        <ServicesSteps />
+
       </div>
     </ServicesSection>
   );
@@ -65,10 +101,15 @@ const Services = () => {
 export default Services;
 
 const ServicesSection = styled.section`
-  padding: 30px 0;
-  margin: 10px 30px;
-  background-color: var(--background);
+  padding: 120px 0 30px 0;
+  margin: 10px 0;
+  background-color: var(--overlay);
   border-radius: 2px;
+
+  @media (min-width: 768px) {
+    margin: 10px 30px;
+    margin-top: 50px;
+  }
 `;
 
 const Header = styled.div`
@@ -146,6 +187,98 @@ const CardDescription = styled.p`
   @media (max-width: 768px) {
     max-width: none;
   }
-
 `;
 
+const CTABanner = styled.div`
+  background-color: var(--background);
+  padding: 24px 32px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  margin-top: 80px;
+
+  @media (max-width: 991px) {
+    flex-direction: column;
+    align-items: flex-start;
+    & > :last-child {
+      align-self: flex-end;
+    }
+  } 
+`;
+
+const SvgContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+`;
+
+const BannerInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 600px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+`;
+
+const BannerText = styled.p`
+  font-size: 1.15rem;
+  color: var(--primary-color);
+  font-weight: 400;
+  margin: 0;
+  font-family: var(--font-text);
+`;
+
+const DesktopBreak = styled.br`
+  display: none;
+  @media (min-width: 992px) {
+    display: inline;
+  }
+`;
+
+
+
+const StyledButton = styled.a`
+display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  font-family: var(--font-text);
+  font-size: 20px;
+  transition: all var(--duration-normal) var(--ease-out);
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e54d15;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 92, 25, 0.3);
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+`;
+
+const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--background);
+`;

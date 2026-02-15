@@ -82,9 +82,13 @@ const DesktopBreak = styled.br`
 
 const SolutionsSection = styled.section`
   padding: 100px 0;
-  margin: 10px 30px;
+  margin: 10px 0;
   background-color: var(--background);
   border-radius: 2px;
+
+  @media (min-width: 768px) {
+    margin: 10px 30px;
+  }
 `;
 
 const Header = styled.div`
@@ -191,7 +195,8 @@ const BannerInfo = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
-  max-width: 40vw;
+  max-width: 600px;
+  width: 100%;
 
   @media (max-width: 768px) {
     flex-direction: column;

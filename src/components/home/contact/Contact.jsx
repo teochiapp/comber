@@ -69,7 +69,7 @@ const Contact = () => {
           </ContactHeader>
 
           <FormContainer
-            initial={{ opacity: 0, x: 120 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ type: "spring", damping: 20, stiffness: 80, duration: 1 }}
@@ -179,6 +179,8 @@ export default Contact;
 const ContactSection = styled.section`
   padding: 100px 0;
   background-color: var(--background);
+  overflow: hidden;
+  overflow-x: hidden;
 `;
 
 const Grid = styled.div`
@@ -278,6 +280,9 @@ const FormGroup = styled.div`
   input, select, textarea {
     background-color: #F1F1F1;
     border: 1px solid #E2E2E2;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     border-radius: 8px;
     padding: 16px 20px;
     font-size: 1rem;
@@ -294,6 +299,15 @@ const FormGroup = styled.div`
       border-color: var(--secondary-color);
       background-color: white;
       box-shadow: 0 0 0 4px rgba(255, 92, 25, 0.05);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 150px;
+    
+    @media (max-width: 600px) {
+      min-height: 250px;
     }
   }
 

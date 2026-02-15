@@ -45,6 +45,8 @@ const BurgerMenu = () => {
     }
   };
 
+  const whatsappUrl = "https://wa.me/5491112345678?text=" + encodeURIComponent("¡Hola! Me gustaría trabajar con ustedes.");
+
   return (
     <>
       {/* BOTÓN HAMBURGUESA */}
@@ -113,10 +115,16 @@ const BurgerMenu = () => {
               </Socials>
             </ContentLogoSocials>
 
-            <CTAButton><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.66732 6.66634V14.6663M10.0007 3.91967L9.33398 6.66634H13.2207C13.4276 6.66634 13.6318 6.71453 13.8169 6.8071C14.0021 6.89967 14.1631 7.03408 14.2873 7.19967C14.4115 7.36527 14.4954 7.55751 14.5325 7.76116C14.5695 7.96481 14.5586 8.17429 14.5007 8.37301L12.9473 13.7063C12.8665 13.9833 12.6981 14.2266 12.4673 14.3997C12.2365 14.5728 11.9558 14.6663 11.6673 14.6663H2.66732C2.3137 14.6663 1.97456 14.5259 1.72451 14.2758C1.47446 14.0258 1.33398 13.6866 1.33398 13.333V7.99967C1.33398 7.64605 1.47446 7.30691 1.72451 7.05687C1.97456 6.80682 2.3137 6.66634 2.66732 6.66634H4.50732C4.75537 6.66621 4.99848 6.59688 5.20929 6.46615C5.4201 6.33543 5.59027 6.14848 5.70065 5.92634L8.00065 1.33301C8.31504 1.3369 8.62448 1.41179 8.90585 1.55207C9.18723 1.69236 9.43327 1.89441 9.62559 2.14314C9.81791 2.39187 9.95153 2.68085 10.0165 2.98848C10.0814 3.2961 10.076 3.61443 10.0007 3.91967Z" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-              Trabajá con nosotros</CTAButton>
+            <CTAButton
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.66732 6.66634V14.6663M10.0007 3.91967L9.33398 6.66634H13.2207C13.4276 6.66634 13.6318 6.71453 13.8169 6.8071C14.0021 6.89967 14.1631 7.03408 14.2873 7.19967C14.4115 7.36527 14.4954 7.55751 14.5325 7.76116C14.5695 7.96481 14.5586 8.17429 14.5007 8.37301L12.9473 13.7063C12.8665 13.9833 12.6981 14.2266 12.4673 14.3997C12.2365 14.5728 11.9558 14.6663 11.6673 14.6663H2.66732C2.3137 14.6663 1.97456 14.5259 1.72451 14.2758C1.47446 14.0258 1.33398 13.6866 1.33398 13.333V7.99967C1.33398 7.64605 1.47446 7.30691 1.72451 7.05687C1.97456 6.80682 2.3137 6.66634 2.66732 6.66634H4.50732C4.75537 6.66621 4.99848 6.59688 5.20929 6.46615C5.4201 6.33543 5.59027 6.14848 5.70065 5.92634L8.00065 1.33301C8.31504 1.3369 8.62448 1.41179 8.90585 1.55207C9.18723 1.69236 9.43327 1.89441 9.62559 2.14314C9.81791 2.39187 9.95153 2.68085 10.0165 2.98848C10.0814 3.2961 10.076 3.61443 10.0007 3.91967Z" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Trabajá con nosotros
+            </CTAButton>
           </BottomSection>
         </MenuContent>
       </Overlay>
@@ -141,8 +149,10 @@ const BurgerButton = styled.button`
 
 const Overlay = styled.div`
   position: fixed;
-  inset: 0;
-  width: 100vw;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80vw;
   height: 100vh;
   background-color: var(--primary-color);
   z-index: 2000;
@@ -232,7 +242,7 @@ const Circle = styled.div`
   }
 `;
 
-const CTAButton = styled.button`
+const CTAButton = styled.a`
   background-color: var(--secondary-color);
   border: none;
   padding: 16px;
@@ -247,6 +257,7 @@ const CTAButton = styled.button`
   width: 100%;
   height: 55px;
   align-items: center;
+  text-decoration: none;
 `;
 const ContentLogoSocials = styled.div`
     display: flex;

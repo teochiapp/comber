@@ -10,14 +10,14 @@ const Hero = () => {
       <div className="container">
         <HeroContent>
           <HeroTitle
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             Soluciones profesionales <br />para tu obra.
           </HeroTitle>
           <HeroSubtitle
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
@@ -48,6 +48,7 @@ const HeroSection = styled.section`
   display: flex;
   align-items: center;
   color: var(--text-light);
+  overflow: hidden;
 `;
 
 const HeroContent = styled.div`
