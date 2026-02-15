@@ -31,18 +31,37 @@ const BurgerMenu = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Bloquear scroll cuando el menú está abierto
+  React.useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = 'unset';
+    };
+  }, [open]);
+
   const handleNavClick = (e, id) => {
     e.preventDefault();
     setOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      const offsetTop = rect.top + window.scrollY - 90;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
-    }
+
+    // Give a small delay for the menu to close and scroll unlock before navigating
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const offsetTop = rect.top + window.scrollY - 90;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    }, 10);
   };
 
   const whatsappUrl = "https://wa.me/5491112345678?text=" + encodeURIComponent("¡Hola! Me gustaría trabajar con ustedes.");
@@ -153,7 +172,7 @@ const Overlay = styled.div`
   right: 0;
   bottom: 0;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
 
   background-color: var(--primary-color);
   z-index: 2000;
@@ -162,6 +181,7 @@ const Overlay = styled.div`
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
+  overscroll-behavior: contain;
 
   transform: ${({ $open }) =>
     $open ? "translateX(0)" : "translateX(100%)"};
