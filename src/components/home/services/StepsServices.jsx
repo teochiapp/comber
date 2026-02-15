@@ -162,7 +162,6 @@ const MainImage = styled.img`
   height: auto;
   object-fit: cover;
   display: block;
-  clip-path: url(#folderMask);
 `;
 
 const StepsWrapper = styled.div`
