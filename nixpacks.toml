@@ -1,0 +1,7 @@
+buildImage = 'ghcr.io/railwayapp/nixpacks:latest'
+
+[phases.setup]
+aptPkgs = ['...', 'bash']
+
+[phases.build]
+cmds = ['npm run build']
