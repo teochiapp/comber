@@ -49,19 +49,9 @@ const StyledButton = styled.a`
     letter-spacing: 0.5px;
   }
 
-  @media (max-width: 375px) {
-    width: 228px;
-    height: 51px;
-    border-radius: 8px;
-    padding: 16px;
-    gap: 10px;
-    font-size: 14px;
-    justify-content: center;
-    box-sizing: border-box;
-  }
 
-  @media (min-width: 350px) and (max-width: 380px) {
-    font-size: 17px;
+  @media (min-width: 300px) and (max-width: 380px) {
+    font-size: 15px;
   }
 `;
 

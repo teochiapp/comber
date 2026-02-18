@@ -55,13 +55,7 @@ const StyledButton = styled.a`
     flex-shrink: 0;
   }
 
-  @media (max-width: 375px) {
-    width: 228px;
-    height: 51px;
-    border-radius: 8px;
-    padding: 16px;
-    gap: 10px;
-    font-size: 14px;
-    box-sizing: border-box;
+  @media (min-width: 300px) and (max-width: 380px) {
+    font-size: 15px;
   }
 `;

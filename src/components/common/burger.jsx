@@ -212,7 +212,7 @@ const MenuContent = styled.div`
 
 
   @media (max-width: 380px) {
-    padding: 40px 40px 40px 40px;
+    padding: 70px 40px 40px 40px;
     gap: 20px;
   }
 `;
