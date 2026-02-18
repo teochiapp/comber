@@ -42,7 +42,7 @@ export default Hero;
 const HeroSection = styled.section`
   height: calc(90vh - 90px);
   min-height: 500px;
-  background: linear-gradient(rgba(12, 39, 60, 0.75), rgba(12, 39, 60, 0.85)), url('/content/hero.jpg');
+  background: linear-gradient(rgba(12, 39, 60, 0.75), rgba(12, 39, 60, 0.85)), url('/content/hero.webp');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -74,6 +74,10 @@ const HeroTitle = styled(motion.h2)`
   span {
     color: var(--secondary-color);
   }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: clamp(34px, 5vw, 94px);
+  }
 `;
 
 const HeroSubtitle = styled(motion.p)`
@@ -83,6 +87,10 @@ const HeroSubtitle = styled(motion.p)`
   max-width: 600px;
   font-weight: 400;
   line-height: 1.6;
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 1.05rem;
+  }
 `;
 
 const ContentsButtons = styled(motion.div)`

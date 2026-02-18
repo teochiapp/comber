@@ -202,6 +202,10 @@ const MenuItem = styled.a`
     position: absolute;
     left: -20px;
   }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 21px;
+  }
 `;
 
 const BottomSection = styled.div`
@@ -258,6 +262,10 @@ const CTAButton = styled.a`
   height: 55px;
   align-items: center;
   text-decoration: none;
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 15px;
+  }
 `;
 const ContentLogoSocials = styled.div`
     display: flex;

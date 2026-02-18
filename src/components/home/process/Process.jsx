@@ -111,7 +111,7 @@ const Process = () => {
       </Section>
 
       <BottomImageContainer>
-        <BottomImage src="/content/service.png" alt="Service" />
+        <BottomImage src="/content/service.webp" alt="Service" />
       </BottomImageContainer>
     </>
   );
@@ -314,6 +314,11 @@ const ItemTitle = styled.h3`
         font-size: 1.25rem;
         font-weight: 400;
     }
+
+    @media (min-width: 350px) and (max-width: 380px) {
+        font-size: 1.1rem;
+        span { font-size: 1.1rem; }
+    }
 `;
 
 const ItemDesc = styled.p`
@@ -326,6 +331,10 @@ const ItemDesc = styled.p`
     @media (max-width: 768px) {
         display: inline;
         max-width: none;
+    }
+
+    @media (min-width: 350px) and (max-width: 380px) {
+        font-size: 1.05rem;
     }
 `;
 
@@ -353,6 +362,10 @@ const MainTitle = styled.h2`
     @media (max-width: 1010px) {
         font-size: 2.5rem;
         white-space: normal;
+    }
+
+    @media (min-width: 350px) and (max-width: 380px) {
+        font-size: 2.1rem;
     }
 `;
 

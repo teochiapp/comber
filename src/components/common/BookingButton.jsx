@@ -40,6 +40,11 @@ const StyledButton = styled.a`
   border: none;
   cursor: pointer;
 
+    @media (max-width: 380px) {
+    padding: 20px 14px;
+    font-size: 18px;
+  }
+
   &:hover {
     background-color: #e54d15;
     transform: translateY(-2px);
@@ -48,5 +53,9 @@ const StyledButton = styled.a`
 
   svg {
     flex-shrink: 0;
+  }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 17px;
   }
 `;

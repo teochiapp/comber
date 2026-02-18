@@ -126,6 +126,10 @@ const Title = styled.h2`
   @media (max-width: 768px) {
     font-size: 2.8rem;
   }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 2.4rem;
+  }
 `;
 
 const Grid = styled.div`
@@ -177,6 +181,10 @@ const CardTitle = styled.h3`
   @media (max-width: 425px) {
     font-size: 1.5rem;
   }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const CardDescription = styled.p`
@@ -189,6 +197,10 @@ const CardDescription = styled.p`
 
   @media (max-width: 768px) {
     max-width: none;
+  }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 0.95rem;
   }
 `;
 
@@ -240,6 +252,10 @@ const BannerText = styled.p`
   font-weight: 400;
   margin: 0;
   font-family: var(--font-text);
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 1rem;
+  }
 `;
 
 const DesktopBreak = styled.br`
@@ -276,6 +292,10 @@ display: inline-flex;
 
   svg {
     flex-shrink: 0;
+  }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 17px;
   }
 `;
 

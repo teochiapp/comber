@@ -206,6 +206,10 @@ const Title = styled.h3`
   color: var(--primary-color);
   margin-bottom: 24px;
   font-family: var(--font-text);
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: clamp(2.1rem, 5vw, 2.8rem);
+  }
 `;
 
 const Subtitle = styled.p`
@@ -214,6 +218,10 @@ const Subtitle = styled.p`
   color: var(--primary-color);
   opacity: 0.8;
   font-family: var(--font-text);
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 0.95rem;
+  }
 `;
 
 const FormContainer = styled(motion.div)`
@@ -352,6 +360,10 @@ const StatusMessage = styled.div`
   background-color: ${props => props.error ? '#FEE2E2' : '#D1FAE5'};
   color: ${props => props.error ? '#991B1B' : '#065F46'};
   border: 1px solid ${props => props.error ? '#FECACA' : '#A7F3D0'};
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 0.85rem;
+  }
 `;
 
 const SubmitWrapper = styled.div`
@@ -376,5 +388,9 @@ const SubmitButton = styled.button`
     background-color: #E54D15;
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(255, 92, 25, 0.2);
+  }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 0.8rem;
   }
 `;

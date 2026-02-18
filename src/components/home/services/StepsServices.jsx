@@ -119,7 +119,7 @@ const StepsServices = () => {
           style={{ flex: 1.1, width: '100%' }}
         >
           <ImageWrapper>
-            <MainImage src="/content/service.png" alt="Proceso de trabajo" />
+            <MainImage src="/content/service.webp" alt="Proceso de trabajo" />
           </ImageWrapper>
         </motion.div>
       </Container>
@@ -268,6 +268,10 @@ const NumberCircle = styled.div`
   font-size: 1.35rem;
   background: white;
   z-index: 3;
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 1.15rem;
+  }
 `;
 
 const ConnectorLine = styled(motion.div)`
@@ -295,6 +299,10 @@ const StepTitle = styled.h3`
   font-family: var(--font-text);
   font-weight: 600;
   margin: 0;
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 1.35rem;
+  }
 `;
 
 const StepDescription = styled.p`
@@ -305,4 +313,8 @@ const StepDescription = styled.p`
   line-height: 1.4;
   margin: 0;
   max-width: 420px;
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 0.92rem;
+  }
 `;

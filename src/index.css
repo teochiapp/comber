@@ -91,3 +91,14 @@ button {
   background: none;
   font-family: inherit;
 }
+
+/* Slightly smaller fonts for very small devices (350px - 380px) */
+@media (min-width: 350px) and (max-width: 380px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+  }
+}

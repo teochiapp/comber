@@ -53,6 +53,10 @@ const StyledButton = styled.a`
     padding: 20px 14px;
     font-size: 18px;
   }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 17px;
+  }
 `;
 
 const IconWrapper = styled.div`

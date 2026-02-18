@@ -126,6 +126,10 @@ const BigTitle = styled.h2`
     max-width: 313px;
     margin: 0 auto;
   }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 28px;
+  }
 `;
 
 const Separator = styled.hr`
@@ -219,6 +223,10 @@ const Description = styled.p`
     font-size: 18px;
     max-width: 320px;
   }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 16px;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -254,6 +262,10 @@ const ThumbButton = styled.a`
     padding: 14px 24px;
     font-size: 1.1rem;
   }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 0.95rem;
+  }
 `;
 
 
@@ -284,6 +296,10 @@ const FooterLink = styled.a`
 
   @media (max-width: 768px) {
     font-size: 18px;
+  }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 16px;
   }
 `;
 
@@ -376,6 +392,10 @@ const CopyText = styled.p`
     .desktop-br {
       display: none;
     }
+  }
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 11px;
   }
 `;
 

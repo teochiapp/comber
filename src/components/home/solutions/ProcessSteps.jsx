@@ -38,7 +38,7 @@ const ProcessSteps = () => {
           style={{ flex: 1.1, width: '100%' }}
         >
           <ImageWrapper>
-            <MainImage src="/content/process-cover.png" alt="Proceso de trabajo" />
+            <MainImage src="/content/process-cover.webp" alt="Proceso de trabajo" />
           </ImageWrapper>
         </motion.div>
 
@@ -263,6 +263,10 @@ const NumberCircle = styled.div`
   font-size: 1.35rem;
   background: white;
   z-index: 3;
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 1.15rem;
+  }
 `;
 
 const ConnectorLine = styled(motion.div)`
@@ -272,7 +276,7 @@ const ConnectorLine = styled(motion.div)`
   transform: translateX(-50%);
   width: 1.5px;
   background-color: var(--primary-color);
-  opacity: 0.9;
+  opacity: 0.8;
   transform-origin: top;
   z-index: 1;
 `;
@@ -290,6 +294,10 @@ const StepTitle = styled.h3`
   font-family: var(--font-text);
   font-weight: 600;
   margin: 0;
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 1.35rem;
+  }
 `;
 
 const StepDescription = styled.p`
@@ -300,4 +308,8 @@ const StepDescription = styled.p`
   line-height: 1.4;
   margin: 0;
   max-width: 420px;
+
+  @media (min-width: 350px) and (max-width: 380px) {
+    font-size: 0.92rem;
+  }
 `;
