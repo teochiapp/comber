@@ -23,9 +23,10 @@ const StyledButton = styled.a`
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-md);
-  background-color: var(--secondary-color);
+  background-color: transparent;
   color: var(--text-light);
   padding: 16px 24px;
+  border: 1px solid #e54d15;
   border-radius: var(--radius-md);
   font-family: var(--font-text);
   font-size: 20px;
@@ -33,10 +34,9 @@ const StyledButton = styled.a`
   transition: all var(--duration-normal) var(--ease-out);
   cursor: pointer;
   text-decoration: none;
-  border: none;
 
   &:hover {
-    background-color: #e54d15;
+    background-color: transparent;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 92, 25, 0.3);
   }
@@ -49,9 +49,15 @@ const StyledButton = styled.a`
     letter-spacing: 0.5px;
   }
 
-  @media (max-width: 350px) {
-    padding: 20px 14px;
-    font-size: 18px;
+  @media (max-width: 375px) {
+    width: 228px;
+    height: 51px;
+    border-radius: 8px;
+    padding: 16px;
+    gap: 10px;
+    font-size: 14px;
+    justify-content: center;
+    box-sizing: border-box;
   }
 
   @media (min-width: 350px) and (max-width: 380px) {

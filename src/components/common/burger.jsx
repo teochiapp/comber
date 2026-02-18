@@ -31,18 +31,37 @@ const BurgerMenu = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Bloquear scroll cuando el menú está abierto
+  React.useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = 'unset';
+    };
+  }, [open]);
+
   const handleNavClick = (e, id) => {
     e.preventDefault();
     setOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      const offsetTop = rect.top + window.scrollY - 90;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
-    }
+
+    // Give a small delay for the menu to close and scroll unlock before navigating
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const offsetTop = rect.top + window.scrollY - 90;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    }, 10);
   };
 
   const whatsappUrl = "https://wa.me/5491112345678?text=" + encodeURIComponent("¡Hola! Me gustaría trabajar con ustedes.");
@@ -152,8 +171,9 @@ const Overlay = styled.div`
   top: 0;
   right: 0;
   bottom: 0;
-  width: 80vw;
+  width: 100vw;
   height: 100vh;
+
   background-color: var(--primary-color);
   z-index: 2000;
 
@@ -161,6 +181,7 @@ const Overlay = styled.div`
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
+  overscroll-behavior: contain;
 
   transform: ${({ $open }) =>
     $open ? "translateX(0)" : "translateX(100%)"};
@@ -181,12 +202,19 @@ const CloseButton = styled.button`
 `;
 
 const MenuContent = styled.div`
-  padding: 185px 40px 40px 40px;
+  padding: 100px 40px 40px 40px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
   color: white;
-  height: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+
+
+  @media (max-width: 380px) {
+    padding: 40px 40px 40px 40px;
+    gap: 20px;
+  }
 `;
 
 const MenuItem = styled.a`
@@ -209,11 +237,16 @@ const MenuItem = styled.a`
 `;
 
 const BottomSection = styled.div`
-  margin-top: auto;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
-  gap: 150px;
-  margin-bottom: 15px;
+  gap: 40px;
+  padding-bottom: 20px;
+
+  @media (max-width: 350px) {
+    margin-top: 50px;
+    gap: 30px;
+  }
 `;
 
 const Logo = styled.div`
@@ -249,17 +282,18 @@ const Circle = styled.div`
 const CTAButton = styled.a`
   background-color: var(--secondary-color);
   border: none;
-  padding: 16px;
+  padding: 14px 20px;
   border-radius: 12px;
   color: white;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  gap: 12px;
   max-width: 265px;
   width: 100%;
-  height: 55px;
+  min-height: 50px;
   align-items: center;
   text-decoration: none;
 
