@@ -4,4 +4,4 @@ buildImage = 'ghcr.io/railwayapp/nixpacks:latest'
 aptPkgs = ['...', 'bash']
 
 [phases.build]
-cmds = ['npm run build']
+cmds = ['NODE_ENV=development node --max_old_space_size=4096 node_modules/.bin/react-scripts build']
