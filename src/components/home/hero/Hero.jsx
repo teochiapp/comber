@@ -40,30 +40,24 @@ const Hero = () => {
 export default Hero;
 
 const HeroSection = styled.section`
-  height: calc(90vh - 90px);
-  min-height: 500px;
+  height: calc(110vh - 90px);
+  padding: 44vh 0 100px 0;
   background: linear-gradient(rgba(12, 39, 60, 0.75), rgba(12, 39, 60, 0.85)), url('/content/hero.webp');
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
   color: var(--text-light);
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 120px 0 80px 0;
+    height: 90vh;
+    display: flex;
+    align-items: flex-end;
+  }
 `;
 
 const HeroContent = styled.div`
-  max-width: 1200px;
-
-  @media (min-width: 850px) {
-    margin-left: -150px;
-    margin-top: 150px;
-  }
-
-  @media (max-width: 768px) {
-    margin-top: 120px;
-    margin-left: 0;
-    padding: 0 20px;
-  }
+  width: 100%;
 `;
 
 const HeroTitle = styled(motion.h2)`

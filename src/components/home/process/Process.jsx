@@ -117,11 +117,11 @@ const Process = () => {
                 </Container>
             </Section>
 
-      <BottomImageContainer>
-        <BottomImage src="/content/service.webp" alt="Service" />
-      </BottomImageContainer>
-    </>
-  );
+            <BottomImageContainer>
+                <BottomImage src="/content/service.webp" alt="Service" />
+            </BottomImageContainer>
+        </>
+    );
 };
 
 export default Process;
@@ -171,9 +171,9 @@ const BackgroundLogo = styled.div`
 `;
 
 const Container = styled.div`
-    max-width: var(--container-max, 1280px);
+    max-width: var(--container-max);
     margin: 0 auto;
-    padding: 0 var(--spacing-md, 20px);
+    padding: 0 var(--spacing-md);
     position: relative;
     z-index: 1;
 `;

@@ -85,10 +85,6 @@ const SolutionsSection = styled.section`
   margin: 10px 0;
   background-color: var(--background);
   border-radius: 2px;
-
-  @media (min-width: 768px) {
-    margin: 10px 30px;
-  }
 `;
 
 const Header = styled.div`
@@ -97,7 +93,7 @@ const Header = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 4.2rem;
+   font-size: clamp(40px, 5vw, 70px);
   color: var(--primary-color);
   font-weight: 500;
   font-family: var(--font-headings);
