@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Calendar } from 'lucide-react';
 
-const BookingButton = ({ className, url = "https://calendly.com/teochiapps" }) => {
+const BookingButton = ({ className, url = "https://calendly.com/combersoluciones" }) => {
   const handleClick = (e) => {
     e.preventDefault();
     if (window.Calendly) {
@@ -12,7 +12,6 @@ const BookingButton = ({ className, url = "https://calendly.com/teochiapps" }) =
       window.open(url, '_blank');
     }
   };
-
   return (
     <StyledButton onClick={handleClick} className={className}>
       <Calendar size={20} />
@@ -27,7 +26,7 @@ const StyledButton = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: var(--spacing-md);
   background-color: var(--secondary-color);
   color: var(--text-light);
   padding: 16px 24px;
@@ -40,7 +39,7 @@ const StyledButton = styled.a`
   border: none;
   cursor: pointer;
 
-    @media (max-width: 380px) {
+  @media (max-width: 380px) {
     padding: 20px 14px;
     font-size: 18px;
   }

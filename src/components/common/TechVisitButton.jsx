@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { Home } from 'lucide-react';
 
 const TechVisitButton = () => {
-  const phoneNumber = "5491112345678"; // Reemplazar con el número real
-  const message = encodeURIComponent("¡Hola! Me gustaría solicitar una visita técnica para mi obra.");
+  const phoneNumber = "5493512630050"; // Reemplazar con el número real
+  const message = encodeURIComponent("Hola, ví tu anuncio en la web y quisiera coordinar una visita para");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (

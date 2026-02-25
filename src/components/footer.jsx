@@ -22,6 +22,10 @@ const FacebookIcon = () => (
   </svg>
 );
 
+const phoneNumber = "5493512630050"; // Reemplazar con el número real
+const message = encodeURIComponent("Hola, ví tu anuncio en la web y quisiera coordinar una visita para");
+const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+
 const Footer = () => {
   return (
     <FooterWrapper>
@@ -68,14 +72,14 @@ const Footer = () => {
 
             <SocialCol>
               <SocialGrid>
-                <IconCircle href="#" aria-label="WhatsApp">
+                <IconCircle href={whatsappUrl} aria-label="WhatsApp" target='_blank'>
                   <WhatsAppIcon />
                 </IconCircle>
                 <IconRow>
-                  <IconCircle href="#" aria-label="Instagram">
+                  <IconCircle href="#" aria-label="Instagram" target='_blank'>
                     <InstagramIcon />
                   </IconCircle>
-                  <IconCircle href="#" aria-label="Facebook">
+                  <IconCircle href="#" aria-label="Facebook" target='_blank'>
                     <FacebookIcon />
                   </IconCircle>
                 </IconRow>
