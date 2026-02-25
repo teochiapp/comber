@@ -64,7 +64,7 @@ const BurgerMenu = () => {
     }, 10);
   };
 
-  const whatsappUrl = "https://wa.me/5493512630050?text=" + encodeURIComponent("Hola, ví tu anuncio en la web y quisiera coordinar una visita para");
+  const whatsappUrl = "https://wa.me/5493512630050?text=" + encodeURIComponent("Hola, vi tu anuncio en la web y quisiera coordinar una visita para");
 
   return (
     <>
