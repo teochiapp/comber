@@ -12,7 +12,7 @@ const TechVisitButton = () => {
       <IconWrapper>
         <Home size={20} />
       </IconWrapper>
-      <span>Solicitar visita técnica</span>
+      <span>Turno bomba de hormigón</span>
     </StyledButton>
   );
 };
