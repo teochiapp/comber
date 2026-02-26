@@ -76,10 +76,10 @@ const Footer = () => {
                   <WhatsAppIcon />
                 </IconCircle>
                 <IconRow>
-                  <IconCircle href="#" aria-label="Instagram" target='_blank'>
+                  <IconCircle href="https://www.instagram.com/combersoluciones/" aria-label="Instagram" target='_blank'>
                     <InstagramIcon />
                   </IconCircle>
-                  <IconCircle href="#" aria-label="Facebook" target='_blank'>
+                  <IconCircle href="https://www.facebook.com/profile.php?id=61587718792709" aria-label="Facebook" target='_blank'>
                     <FacebookIcon />
                   </IconCircle>
                 </IconRow>
