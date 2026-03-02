@@ -12,7 +12,7 @@ const TechVisitButton = () => {
       <IconWrapper>
         <Home size={20} />
       </IconWrapper>
-      <span>Turno bomba de hormigón</span>
+      <span>Solicitar visita técnica</span>
     </StyledButton>
   );
 };
@@ -29,7 +29,7 @@ const StyledButton = styled.a`
   border: 1px solid #e54d15;
   border-radius: var(--radius-md);
   font-family: var(--font-text);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   transition: all var(--duration-normal) var(--ease-out);
   cursor: pointer;
@@ -51,7 +51,7 @@ const StyledButton = styled.a`
 
 
   @media (min-width: 300px) and (max-width: 380px) {
-    font-size: 15px;
+    font-size: 16px;
   }
 `;
 

@@ -87,7 +87,7 @@ const Services = () => {
             <IconWrapper>
               <Home size={20} />
             </IconWrapper>
-            <span>Turno bomba de hormigón</span>
+            <span>Solicitar visita técnica</span>
           </StyledButton>
         </CTABanner>
 

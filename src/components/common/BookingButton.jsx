@@ -131,7 +131,7 @@ const BookingButton = ({ className, url = "https://calendly.com/combersoluciones
   return (
     <StyledButton onClick={handleClick} className={className}>
       <Calendar size={20} />
-      Reservar Turno
+      Reservar turno bomba de hormigón
     </StyledButton>
   );
 };
@@ -150,14 +150,14 @@ const StyledButton = styled.a`
   font-weight: 500;
   text-decoration: none;
   font-family: var(--font-text);
-  font-size: 20px;
+  font-size: 18px;
   transition: all var(--duration-normal) var(--ease-out);
   border: none;
   cursor: pointer;
 
   @media (max-width: 380px) {
     padding: 20px 14px;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   &:hover {
