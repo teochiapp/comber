@@ -52,19 +52,21 @@ const buildWhatsAppMessage = (invitee, event) => {
     return found?.answer || '-';
   };
 
-  const m2 = getAnswer('m');
-  const hormigon = getAnswer('hormig');
-  const bomba = getAnswer('bomba');
+  const telefono = getAnswer('tel');
   const ubicacion = getAnswer('ubicaci');
+  const m3 = getAnswer('m³') !== '-' ? getAnswer('m³') : getAnswer('m3') !== '-' ? getAnswer('m3') : getAnswer('cuántos');
+  const servicio = getAnswer('servicio');
+  const hormigon = getAnswer('hormig');
 
   const text =
     `¡Hola! Tengo una reserva confirmada:
 Fecha: ${fecha}
 Cliente: ${nombre}
+Teléfono: ${telefono}
 Ubicación: ${ubicacion}
-M2: ${m2}
-Tipo Hormigón: ${hormigon}
-Necesitas bomba? ${bomba}`;
+M³ requeridos: ${m3}
+Tipo de servicio: ${servicio}
+Tipo de hormigón: ${hormigon}`;
 
   return encodeURIComponent(text);
 };
