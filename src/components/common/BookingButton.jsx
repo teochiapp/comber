@@ -52,10 +52,10 @@ const buildWhatsAppMessage = (invitee, event) => {
     return found?.answer || '-';
   };
 
-  const telefono = getAnswer('tel');
+  const telefono = getAnswer('teléf');
   const ubicacion = getAnswer('ubicaci');
   const m3 = getAnswer('m³') !== '-' ? getAnswer('m³') : getAnswer('m3') !== '-' ? getAnswer('m3') : getAnswer('cuántos');
-  const servicio = getAnswer('servicio');
+  const servicio = getAnswer('qué tipo');
   const hormigon = getAnswer('hormig');
 
   const text =
